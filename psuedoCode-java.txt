@@ -1,0 +1,28 @@
+//Original Psuedocode
+//Dynamic Programming Approach for calculating Fibonacci Numbers
+int Fib(n){
+  int[n] fib;
+  fib[0] = 0; fib[1] = 1;
+  for(int i =2; i <=n; i++){
+    fib[i] = fib[i-1] + fib[i-2];
+  }
+  return fib[n];
+}
+
+
+//Low Memory/Implemented Psuedocode
+//Low, constant memory consumption for n-th Fibonacci Number calculation
+//Still runs in n time (RAM Model)
+//Precondition n>=2
+int Fib(n){
+  //doesn't handle trivial n=0,1 cases
+  int[3] fib; //fib[0] = i-2, fib[1] = i-1, fib[2] = i
+  fib[0] = 0; fib[1] = 1; fib[2] = 1;
+  int temp;
+  for(int i = 2; i <= n; i++){
+     fib[0] = fib[1];
+     fib[1] = fib[2];
+     fib[2] = fib[0] + fib[1];
+  }
+  return fib[2];
+}
